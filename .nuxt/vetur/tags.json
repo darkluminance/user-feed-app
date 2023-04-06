@@ -1,0 +1,17 @@
+{
+  "Blog": {
+    "description": "Auto imported from components/blog.vue"
+  },
+  "NuxtLogo": {
+    "description": "Auto imported from components/NuxtLogo.vue"
+  },
+  "Technews": {
+    "description": "Auto imported from components/technews.vue"
+  },
+  "Topnews": {
+    "description": "Auto imported from components/topnews.vue"
+  },
+  "Weather": {
+    "description": "Auto imported from components/weather.vue"
+  }
+}

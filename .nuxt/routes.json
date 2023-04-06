@@ -1,0 +1,44 @@
+[
+  {
+    "name": "post",
+    "path": "/post",
+    "component": "E:\\\\NuxtJS2\\\\user-feed-app\\\\pages\\\\post\\\\index.vue",
+    "chunkName": "pages/post/index",
+    "_name": "_61df047f"
+  },
+  {
+    "name": "post-create",
+    "path": "/post/create",
+    "component": "E:\\\\NuxtJS2\\\\user-feed-app\\\\pages\\\\post\\\\create.vue",
+    "chunkName": "pages/post/create",
+    "_name": "_01b5d61f"
+  },
+  {
+    "name": "post-error",
+    "path": "/post/error",
+    "component": "E:\\\\NuxtJS2\\\\user-feed-app\\\\pages\\\\post\\\\error.vue",
+    "chunkName": "pages/post/error",
+    "_name": "_b4b5ba96"
+  },
+  {
+    "name": "post-success",
+    "path": "/post/success",
+    "component": "E:\\\\NuxtJS2\\\\user-feed-app\\\\pages\\\\post\\\\success.vue",
+    "chunkName": "pages/post/success",
+    "_name": "_0977e9f0"
+  },
+  {
+    "name": "post-id",
+    "path": "/post/:id",
+    "component": "E:\\\\NuxtJS2\\\\user-feed-app\\\\pages\\\\post\\\\_id.vue",
+    "chunkName": "pages/post/_id",
+    "_name": "_6e121aa7"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "E:\\\\NuxtJS2\\\\user-feed-app\\\\pages\\\\index.vue",
+    "chunkName": "pages/index",
+    "_name": "_4df7685f"
+  }
+]

@@ -30,47 +30,41 @@ const store = () =>
             }
         },
         actions: {
-
-            async fetchTechNews ( { commit } )
+            nuxtServerInit ( vuexContext, callback )
             {
+
+
                 const TECH_NEWS_API = 'https://newsapi.org/v2/top-headlines?sources=techcrunch&sortBy=popularity&apiKey=c7024ffb8f944c9380bd7773981dfbc5'
-                try
-                {
-                    const res = await axios.get( TECH_NEWS_API )
-
-                    const postsArray = []
-                    for ( const key in res.data )
+                const technews = axios.get( TECH_NEWS_API )
+                    .then( res =>
                     {
-                        postsArray.push( { ...res.data[ key ], id: key } )
-                    }
-                    commit( 'setTechNews', postsArray )
+                        const postsArray = []
+                        for ( const key in res.data )
+                        {
+                            postsArray.push( { ...res.data[ key ], id: key } )
+                        }
+                        vuexContext.commit( 'setTechNews', postsArray )
 
-                } catch ( error )
-                {
-                    console.log( error );
-                }
+                    } ).catch( error => console.log( error ) )
 
-            },
-            async fetchNews ( { commit } )
-            {
                 const NEWS_API = 'https://newsapi.org/v2/top-headlines?sources=the-wall-street-journal&sortBy=popularity&apiKey=c7024ffb8f944c9380bd7773981dfbc5'
-                try
-                {
-                    const res = await axios.get( NEWS_API )
-
-                    const postsArray = []
-                    for ( const key in res.data )
+                const topnews = axios.get( NEWS_API )
+                    .then( res =>
                     {
-                        postsArray.push( { ...res.data[ key ], id: key } )
-                    }
-                    commit( 'setTopNews', postsArray )
+                        const postsArray = []
+                        for ( const key in res.data )
+                        {
+                            postsArray.push( { ...res.data[ key ], id: key } )
+                        }
+                        vuexContext.commit( 'setTopNews', postsArray )
 
-                } catch ( error )
-                {
-                    console.log( error );
-                }
+                    } ).catch( error => console.log( error ) )
+
+
+
+
+                return axios.all( [ technews, topnews ] );
             },
-
 
 
 

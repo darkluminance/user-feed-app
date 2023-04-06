@@ -29,11 +29,12 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
     computed: {
         blogs ()
         {
-            // console.log( this.$store.getters.blogData );
             return this.$store.getters.blogData;
         },
 
@@ -48,8 +49,33 @@ export default {
         setType ()
         {
             localStorage.setItem( 'type', 'blog' )
+        },
+        async fetchBlogs ()
+        {
+            let USER_API = 'http://user-feed-6041f-default-rtdb.asia-southeast1.firebasedatabase.app/user-posts.json'
+
+            try
+            {
+                const res = await axios.get( USER_API )
+
+                const postsArray = []
+                for ( const key in res.data )
+                {
+                    postsArray.push( { ...res.data[ key ], id: key } )
+                }
+                this.$store.commit( 'setBlogs', postsArray )
+
+            } catch ( error )
+            {
+                console.log( error );
+            }
         }
     },
+
+    async mounted ()
+    {
+        await this.fetchBlogs()
+    }
 
 }
 </script>

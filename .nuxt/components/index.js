@@ -1,8 +1,8 @@
-export const Blog = () => import('../..\\components\\blog.vue' /* webpackChunkName: "components/blog" */).then(c => wrapFunctional(c.default || c))
-export const NuxtLogo = () => import('../..\\components\\NuxtLogo.vue' /* webpackChunkName: "components/nuxt-logo" */).then(c => wrapFunctional(c.default || c))
-export const Technews = () => import('../..\\components\\technews.vue' /* webpackChunkName: "components/technews" */).then(c => wrapFunctional(c.default || c))
-export const Topnews = () => import('../..\\components\\topnews.vue' /* webpackChunkName: "components/topnews" */).then(c => wrapFunctional(c.default || c))
-export const Weather = () => import('../..\\components\\weather.vue' /* webpackChunkName: "components/weather" */).then(c => wrapFunctional(c.default || c))
+export { default as Blog } from '../..\\components\\blog.vue'
+export { default as NuxtLogo } from '../..\\components\\NuxtLogo.vue'
+export { default as Technews } from '../..\\components\\technews.vue'
+export { default as Topnews } from '../..\\components\\topnews.vue'
+export { default as Weather } from '../..\\components\\weather.vue'
 
 // nuxt/nuxt.js#8607
 function wrapFunctional(options) {

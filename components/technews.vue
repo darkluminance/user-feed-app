@@ -15,6 +15,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
     computed: {
         technews ()
@@ -36,6 +38,11 @@ export default {
             window.location.href = url
         }
     },
+
+    async mounted ()
+    {
+        await this.$store.dispatch( 'fetchTechNews' )
+    }
 }
 </script>
 <style>

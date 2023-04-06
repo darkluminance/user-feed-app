@@ -1,7 +1,6 @@
 import Vuex from 'vuex';
 import axios from 'axios';
 
-
 const store = () =>
 {
     return new Vuex.Store( {
@@ -31,57 +30,51 @@ const store = () =>
             }
         },
         actions: {
-            nuxtServerInit ( vuexContext, callback )
+
+            async fetchTechNews ( { commit } )
             {
-                const post = axios.get( process.env.USER_API )
-                    .then( res =>
-                    {
-                        const postsArray = []
-                        for ( const key in res.data )
-                        {
-                            postsArray.push( { ...res.data[ key ], id: key } )
-                        }
-                        vuexContext.commit( 'setBlog', postsArray )
-                    } ).catch( e => context.error( e ) );
+                const TECH_NEWS_API = 'https://newsapi.org/v2/top-headlines?sources=techcrunch&sortBy=popularity&apiKey=c7024ffb8f944c9380bd7773981dfbc5'
+                try
+                {
+                    const res = await axios.get( TECH_NEWS_API )
 
-                const weather = axios.get( process.env.WEATHER_API )
-                    .then( res =>
+                    const postsArray = []
+                    for ( const key in res.data )
                     {
-                        const postsArray = []
-                        for ( const key in res.data )
-                        {
-                            postsArray.push( { ...res.data[ key ], id: key } )
-                        }
-                        vuexContext.commit( 'setWeather', postsArray )
-                    } )
-                    .catch( e => context.error( e ) );
+                        postsArray.push( { ...res.data[ key ], id: key } )
+                    }
+                    commit( 'setTechNews', postsArray )
 
-                const technews = axios.get( process.env.TECH_API )
-                    .then( res =>
+                } catch ( error )
+                {
+                    console.log( error );
+                }
+
+            },
+            async fetchNews ( { commit } )
+            {
+                const NEWS_API = 'https://newsapi.org/v2/top-headlines?sources=the-wall-street-journal&sortBy=popularity&apiKey=c7024ffb8f944c9380bd7773981dfbc5'
+                try
+                {
+                    const res = await axios.get( NEWS_API )
+
+                    const postsArray = []
+                    for ( const key in res.data )
                     {
-                        const postsArray = []
-                        for ( const key in res.data )
-                        {
-                            postsArray.push( { ...res.data[ key ], id: key } )
-                        }
-                        vuexContext.commit( 'setTechNews', postsArray )
-                    } )
-                    .catch( e => context.error( e ) );
+                        postsArray.push( { ...res.data[ key ], id: key } )
+                    }
+                    commit( 'setTopNews', postsArray )
 
-                const topnews = axios.get( process.env.NEWS_API )
-                    .then( res =>
-                    {
-                        const postsArray = []
-                        for ( const key in res.data )
-                        {
-                            postsArray.push( { ...res.data[ key ], id: key } )
-                        }
-                        vuexContext.commit( 'setTopNews', postsArray )
-                    } )
-                    .catch( e => context.error( e ) );
+                } catch ( error )
+                {
+                    console.log( error );
+                }
+            },
 
-                return axios.all( [ weather, technews, topnews, post ] );
-            }
+
+
+
+
         },
         mutations: {
             setWeather ( state, value )
@@ -96,7 +89,7 @@ const store = () =>
             {
                 state.topnewsData = value;
             },
-            setBlog ( state, value )
+            setBlogs ( state, value )
             {
                 state.blogData = value;
             }

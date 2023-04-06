@@ -33,7 +33,11 @@ export default {
         gotoURL ( url )
         {
             window.location.href = url
-        }
+        },
+    },
+    async mounted ()
+    {
+        await this.$store.dispatch( 'fetchNews' );
     },
 }
 </script>

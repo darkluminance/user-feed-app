@@ -52,7 +52,7 @@ export default {
         },
         async fetchBlogs ()
         {
-            let USER_API = 'http://user-feed-6041f-default-rtdb.asia-southeast1.firebasedatabase.app/user-posts.json'
+            let USER_API = 'https://user-feed-6041f-default-rtdb.asia-southeast1.firebasedatabase.app/user-posts.json'
 
             try
             {

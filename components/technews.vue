@@ -6,7 +6,7 @@
             <img v-bind:src="news.urlToImage" alt="">
             <h1 class="font-bold text-xl py-2"> {{ news.title }} </h1>
             <div class="font-light text-sm">
-                <p class="inline-block font-normal"> {{ news.author }}, </p>
+                <p class="inline-block font-normal"> {{ news.author }}, &nbsp;</p>
                 <p class="inline-block"> {{ formatDate(news.publishedAt) }} </p>
             </div>
             <p class="my-4"> {{ news.description }}... </p>

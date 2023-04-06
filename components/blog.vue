@@ -18,7 +18,7 @@
                 <img v-bind:src="blog.img" alt="">
                 <h1 class="font-bold text-xl py-2"> {{ blog.title }} </h1>
                 <div class="font-light text-sm">
-                    <p class="inline-block font-normal"> {{ blog.author }}, </p>
+                    <p class="inline-block font-normal"> {{ blog.author }}, &nbsp;</p>
                     <p class="inline-block"> {{ formatDate(blog.publishedAt) }} </p>
                 </div>
                 <p class="my-4"> {{ blog.preview }}</p>

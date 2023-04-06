@@ -33,7 +33,7 @@ const store = () =>
         actions: {
             nuxtServerInit ( vuexContext, callback )
             {
-                const post = axios.get( 'https://user-feed-6041f-default-rtdb.asia-southeast1.firebasedatabase.app/user-posts.json' )
+                const post = axios.get( process.env.USER_API )
                     .then( res =>
                     {
                         const postsArray = []
@@ -44,7 +44,7 @@ const store = () =>
                         vuexContext.commit( 'setBlog', postsArray )
                     } ).catch( e => context.error( e ) );
 
-                const weather = axios.get( 'https://api.weatherapi.com/v1/forecast.json?key=d20764e093a0499a8c370116232303&q=Dhaka&days=3&aqi=yes&alerts=no' )
+                const weather = axios.get( process.env.WEATHER_API )
                     .then( res =>
                     {
                         const postsArray = []
@@ -56,7 +56,7 @@ const store = () =>
                     } )
                     .catch( e => context.error( e ) );
 
-                const technews = axios.get( 'https://newsapi.org/v2/top-headlines?sources=techcrunch&sortBy=popularity&apiKey=c7024ffb8f944c9380bd7773981dfbc5' )
+                const technews = axios.get( process.env.TECH_API )
                     .then( res =>
                     {
                         const postsArray = []
@@ -68,7 +68,7 @@ const store = () =>
                     } )
                     .catch( e => context.error( e ) );
 
-                const topnews = axios.get( 'https://newsapi.org/v2/top-headlines?sources=the-wall-street-journal&sortBy=popularity&apiKey=c7024ffb8f944c9380bd7773981dfbc5' )
+                const topnews = axios.get( process.env.NEWS_API )
                     .then( res =>
                     {
                         const postsArray = []
